@@ -125,3 +125,33 @@ document.addEventListener('keydown', function (e) {
   }
 });
 //=================
+const widget = document.querySelector('.widget');
+
+
+
+
+if (window.innerWidth > 768) {
+  document.addEventListener('scroll', function () {
+    if (pageYOffset > 250) {
+      widget.classList.add('_scroll');
+    } else {
+      widget.classList.remove('_scroll');
+    }
+  });
+} else if (window.innerWidth < 769 && window.innerWidth > 468) {
+  document.addEventListener('scroll', function () {
+    if (pageYOffset > 580) {
+      widget.classList.add('_scroll');
+    } else {
+      widget.classList.remove('_scroll');
+    }
+  });
+} else if (window.innerWidth <= 468) {
+  document.addEventListener('scroll', function () {
+    if (pageYOffset > 290) {
+      widget.classList.add('_scroll');
+    } else {
+      widget.classList.remove('_scroll');
+    }
+  });
+}
