@@ -1,4 +1,5 @@
 let unlock = true;
+const widget = document.querySelector('.widget');
 //BodyLock
 function body_lock(delay) {
   let body = document.querySelector("body");
@@ -84,6 +85,7 @@ function popup_open(item, video = '') {
     }
     curent_popup.classList.add('_active');
     history.pushState('', '', '#' + item);
+    widget.style.display = 'none';
   }
 }
 function popup_close(item, bodyUnlock = true) {
@@ -96,6 +98,7 @@ function popup_close(item, bodyUnlock = true) {
           video.innerHTML = '';
         }
         popup.classList.remove('_active');
+        widget.style.display = 'block';
       }
     } else {
       let video = item.querySelector('.popup__video');
@@ -103,6 +106,7 @@ function popup_close(item, bodyUnlock = true) {
         video.innerHTML = '';
       }
       item.classList.remove('_active');
+      widget.style.display = 'block';
     }
     if (!document.querySelector('.menu__body._active') && bodyUnlock) {
       body_lock_remove(500);
@@ -125,11 +129,6 @@ document.addEventListener('keydown', function (e) {
   }
 });
 //=================
-const widget = document.querySelector('.widget');
-
-
-
-
 if (window.innerWidth > 768) {
   document.addEventListener('scroll', function () {
     if (pageYOffset > 250) {
@@ -155,3 +154,4 @@ if (window.innerWidth > 768) {
     }
   });
 }
+
